@@ -1,5 +1,5 @@
 
-![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/pcm60xmonitor.jpg)
+![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/webmonitor-pcm60x/pcm60xmonitor.jpg)
 
 To use this script just call into your browser is connected to the same LAN as your raspberry pi:
 
