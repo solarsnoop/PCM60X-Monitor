@@ -1,3 +1,6 @@
+
+![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/webmonitor-pcm60x/master/pcm60xmonitor.jpg)
+
 To use this script just call into your browser is connected to the same LAN as your raspberry pi:
 
 http://ipadressofyourraspberrypi/solar/pcm60x.php
