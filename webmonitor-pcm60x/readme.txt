@@ -5,6 +5,8 @@ To use this script just call into your browser is connected to the same LAN as y
 
 http://ipadressofyourraspberrypi/solar/monitor.php
 
+**Attention: the Monitor is only working in the day time when the Display of the PCM60X is online!!!**
+
 this project is still under construction. finaly i will create a web based administration menue,
 where you can watch your current settings and parameters. Also update some settings easy by using this website.
 The project is testing with a raspberry pi 3.
