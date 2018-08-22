@@ -6,7 +6,7 @@ filename = 'transfer.txt'
 with open(filename, 'rb') as f:
      content = f.read()
 if content == "504254303274C0D":
-   qcode = "\x50\x42\x54\x30\x32\x74\x0C\x0D"
+   qcode = "\x50\x42\x54\x30\x32\x07\x4C\x0D"
 else:
     qcode = content.decode("hex")
 i = 0
