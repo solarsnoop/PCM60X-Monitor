@@ -27,8 +27,8 @@ monitor and administration pcm60x charger via web client.
 **in this folder:**
 you find some work arrounds.
 
-**in the folder https://github.com/solarsnoop/PCM60X-read-send-datas :**
-you will find the project for the web client
+**in the folder https://github.com/solarsnoop/ :**
+you will find the project for the web client: https://github.com/solarsnoop/PCM60X-Monitor/tree/master/webmonitor-pcm60x
 
 **summery:**
 
