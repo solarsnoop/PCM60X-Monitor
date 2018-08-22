@@ -3,7 +3,7 @@
 
 To use this script just call into your browser is connected to the same LAN as your raspberry pi:
 
-http://ipadressofyourraspberrypi/solar/monitor.php
+http://ipadressofyourraspberrypi/monitor.php
 
 **Attention: the Monitor is only working in the day time when the Display of the PCM60X is online!!!**
 
@@ -12,7 +12,7 @@ where you can watch your current settings and parameters. Also update some setti
 The project is testing with a raspberry pi 3.
 **phyton2.7 and php5 compatible codes**
 folders:
-/var/www/html/ -> copy all in this folder
+/var/www/html/ -> copy all in this folder or create a new subfolder
 
 additional you need to have the rasberry pi user www-data (If not exist)
 sudo adduser $USER www-data
