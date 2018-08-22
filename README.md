@@ -4,6 +4,15 @@ Demo site: https://infotv.zapto.org/pcm60x.php
 
 PCM60X Solar Charger Web Based Monitor based on php and python
 
+You need:
+- Raspberry PI 2 or 3
+- Rasbian Jessie or Stretch -> apache, php 5 and python 2.7
+- USB Serial adapter with PL2303 
+- PCM60X Solar Charger
+
+The PCM60X Web Monitor use in your local network with: http://ip-raspberryPi/monitor.php
+Chrome/Firefox is tested
+
 ![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/pcm60xmonitor.jpg)
 
 **source for codes:**
