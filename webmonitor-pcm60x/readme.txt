@@ -1,14 +1,14 @@
 
-![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/webmonitor-pcm60x/pcm60xmonitor.jpg)
+![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/pcm60xmonitor.jpg)
 
 To use this script just call into your browser is connected to the same LAN as your raspberry pi:
 
-http://ipadressofyourraspberrypi/solar/pcm60x.php
+http://ipadressofyourraspberrypi/solar/monitor.php
 
-this is still under construction. finaly i will create a web based administration menue,
+this project is still under construction. finaly i will create a web based administration menue,
 where you can watch your current settings and parameters. Also update some settings easy by using this website.
 The project is testing with a raspberry pi 3.
-phyton2.7 and php5 compatible codes
+**phyton2.7 and php5 compatible codes**
 folders:
 /var/www/html/solar/ -> php scrits
 /home/pi/pyhton/ -> pyhton scripts and txt files
