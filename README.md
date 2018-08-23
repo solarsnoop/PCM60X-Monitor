@@ -10,7 +10,7 @@ You need:
 - USB Serial adapter with PL2303 
 - PCM60X Solar Charger
 
-The PCM60X Web Monitor use in your local network with: http://ip-raspberryPi/monitor.php
+The PCM60X Web Monitor use in your local network with: http://ip-raspberryPi/monitor/
 Chrome/Firefox is tested
 
 ![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/pcm60xmonitor.jpg)
@@ -46,6 +46,16 @@ I will show you 2 example how you can read datas and send datas to the PCM60x , 
 
 **You need to do:**
 ...
+cd ..
+cd var
+cd www
+cd html
+
+git clone https://github.com/solarsnoop/PCM60X-Monitor.git
+
+sudo mv /var/www/html/PCM60X-Monitor/monitor /var/www/html/monitor/
+sudo rm -rf PCM60X-Monitor/
+
 add in /bin/sudoers ->
 nano /bin/sudoers
 add this line at the end
