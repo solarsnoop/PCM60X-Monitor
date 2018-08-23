@@ -24,26 +24,6 @@ https://www.szenebox.org/archive/index.php/t-4319.html user NIMBUS
 
 monitor and administration pcm60x charger via web client.
 
-**in this folder:**
-you find some work arrounds.
-
-**in the folder https://github.com/solarsnoop/ :**
-you will find the project for the web client: https://github.com/solarsnoop/PCM60X-Monitor/tree/master/webmonitor-pcm60x
-
-**summery:**
-
-Simple workaround for send recive datas to your PCM60X solar charger
-You can send codes to your PCM60x Charger, using the description of Solar Charge Controler - PCM60X - RS232 Protocol.pdf.
-
-What you need to do is connect your raspberry pi with the existing RS232 cable, and buy an adapter to USB (pl2303 chip) or use an serielle interface adapter. 
-
-In the code just modify the interface depending what you are using. eg.: AMA0 (Seriell adapter) or USB0 to 1,2,3, depending what usb port your adapter use this code you need to modify:
-```
-ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
-```
-
-I will show you 2 example how you can read datas and send datas to the PCM60x , and how you can post it to any aplication in this case emoncms (guithub project) and website at http://emoncms.org.
-
 **You need to do:**
 ```
 cd ..
@@ -71,6 +51,32 @@ sudo chgrp -R www-data /var/www
 sudo chmod -R g+w /var/www
 sudo chmod g+s /var/www
 ```
+after that call in your browser http://ipadressraspberrypi/monitor/
+
+**in this folder here:**
+you find some work arrounds.
+
+**in the folder https://github.com/solarsnoop/PCM60X-Monitor:**
+you will find the project for the web client monitor here: https://github.com/solarsnoop/PCM60X-Monitor/tree/master/monitor/
+
+**summery for this folder:**
+
+Simple workaround for send recive datas to your PCM60X solar charger
+You can send codes to your PCM60x Charger, using the description of Solar Charge Controler - PCM60X - RS232 Protocol.pdf.
+
+What you need to do is connect your raspberry pi with the existing RS232 cable, and buy an adapter to USB (pl2303 chip) or use an serielle interface adapter. 
+
+
+
+** some examples for testing **
+
+
+In the codes just modify the interface, depending what you are using. eg.: AMA0 (Seriell adapter) or USB0 to 1,2,3, depending what usb port your adapter use this code you need to modify:
+```
+ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
+```
+
+I will show you 2 example how you can read datas and send datas to the PCM60x , and how you can post it to any aplication in this case emoncms (guithub project) and website at http://emoncms.org.
 
 1. going to the website:
 https://emoncms.de/CRC/crc.php
