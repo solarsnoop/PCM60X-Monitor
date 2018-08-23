@@ -88,7 +88,7 @@ $crccode=strtoupper(dechex($in));
     $crc2=substr($crccode, 2, 4);
     IF ($crc2=="0D"){$crc2="0E";}
     IF ($crc2=="0A"){$crc2="0B";}
-    IF ($crc2=="28"){$crc1="29";}
+    IF ($crc2=="28"){$crc2="29";}
 $hexasc="";
 for ($i = 0; $i < strlen($ascii); $i++) {
     $byte = strtoupper(dechex(ord($ascii{$i})));
