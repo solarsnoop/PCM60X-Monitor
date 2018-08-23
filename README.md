@@ -8,6 +8,7 @@ You need:
 - Raspberry PI 2 or 3
 - Rasbian Jessie or Stretch -> apache, php 5 and python 2.7
 - USB Serial adapter with PL2303 (USB0*) or a serial adapter use the GPIOS (ARM0)
+(ARM0 look here: http://codeandlife.com/2012/07/01/raspberry-pi-serial-console-with-max3232cpe/ )
 - PCM60X Solar Charger
 
 *Use **sudo dmesg** for see what serial port your adapter is useing.
