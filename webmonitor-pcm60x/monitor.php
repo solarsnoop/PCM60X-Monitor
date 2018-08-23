@@ -164,6 +164,10 @@ if (isset($_POST['bulkp']) && isset($_POST['bulkv']) && isset($_POST['factorv'])
 if ($_POST['bulkp']!=$_POST['bulkv']) {
 	$bulkp=floor($_POST['bulkp']/$_POST['factorv']*100)/100;
 	IF ($bulkp<15.01 AND $bulkp>11.99){
+    $bulkp=$bulkp*100;
+    $vorne = substr($bulkp, 0, 2);
+    $hinten= substr($bulkp, -2);
+    $bulkp=$vorne.'.'.$hinten;
     $input="PBAV".$bulkp;
     $input2="PBAV".$bulkp;
     $bulkpn = 'Setup bulk voltage from '.$_POST['bulkv'].' V to: '.$_POST['bulkp'].' V';
@@ -175,6 +179,10 @@ if (isset($_POST['floatp']) && isset($_POST['floatv']) && isset($_POST['factorv'
 if ($_POST['floatp']!=$_POST['floatv']) {
 	$floatp=floor($_POST['floatp']/$_POST['factorv']*100)/100;
 	IF ($floatp<15.01 AND $floatp>11.99){
+    $floatp=$floatp*100;
+    $vorne = substr($floatp, 0, 2);
+    $hinten= substr($floatp, -2);
+    $floatp=$vorne.'.'.$hinten;
     $input="PBFV".$floatp;
     $input2="PBFV".$floatp;
     $floatpn = 'Setup float voltage from '.$_POST['floatv'].' V to: '.$_POST['floatp'].' V';
@@ -487,4 +495,3 @@ else {$color="red";$hexcol="#FF0000";$battgraf="battery4.jpg";}
 </form>
 </td></tr></table>
 <hr>
-
