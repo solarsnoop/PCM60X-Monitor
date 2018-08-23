@@ -10,21 +10,6 @@ You need:
 - USB Serial adapter with PL2303 
 - PCM60X Solar Charger
 
-add in /bin/sudoers ->
-nano /bin/sudoers
-add this line at the end
-www-data ALL=(root) NOPASSWD: /usr/bin/python
-
-**phyton2.7 and php5 compatible codes**
-folders:
-/var/www/html/ -> copy all in this folder or create a new subfolder
-
-additional you need to have the rasberry pi user www-data (If not exist)
-sudo adduser $USER www-data
-sudo chgrp -R www-data /var/www
-sudo chmod -R g+w /var/www
-sudo chmod g+s /var/www
-
 The PCM60X Web Monitor use in your local network with: http://ip-raspberryPi/monitor.php
 Chrome/Firefox is tested
 
@@ -58,6 +43,24 @@ ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
 ```
 
 I will show you 2 example how you can read datas and send datas to the PCM60x , and how you can post it to any aplication in this case emoncms (guithub project) and website at http://emoncms.org.
+
+**You need to do:**
+...
+add in /bin/sudoers ->
+nano /bin/sudoers
+add this line at the end
+www-data ALL=(root) NOPASSWD: /usr/bin/python
+
+**phyton2.7 and php5 compatible codes**
+folders:
+/var/www/html/ -> copy all in this folder or create a new subfolder
+
+additional you need to have the rasberry pi user www-data (If not exist)
+sudo adduser $USER www-data
+sudo chgrp -R www-data /var/www
+sudo chmod -R g+w /var/www
+sudo chmod g+s /var/www
+...
 
 1. going to the website:
 https://emoncms.de/CRC/crc.php
