@@ -10,7 +10,15 @@ You need:
 - USB Serial adapter with PL2303 (USB0*) or a serial adapter use the GPIOS (ARM0)
 - PCM60X Solar Charger
 
-*Use **sudo dmesg** for see what serial port your adapter useing.
+*Use **sudo dmesg** for see what serial port your adapter is useing.
+
+**example USB1: ttyUSB1:**
+```
+please change the CODE in qpigs.py, qpiri.py and sendcode.py and look find:
+ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
+change this into
+ser = serial.Serial(port='/dev/ttyUSB1',baudrate=2400,timeout=2)
+```
 
 The PCM60X Web Monitor use in your local network with: http://ip-raspberryPi/monitor/
 Chrome/Firefox is tested
@@ -38,8 +46,8 @@ git clone https://github.com/solarsnoop/PCM60X-Monitor.git
 sudo mv /var/www/html/PCM60X-Monitor/monitor /var/www/html/monitor/
 sudo rm -rf PCM60X-Monitor/
 
-add in /bin/sudoers ->
-nano /bin/sudoers
+add in /etc/sudoers ->
+nano /etc/sudoers
 add this line at the end
 www-data ALL=(root) NOPASSWD: /usr/bin/python
 
