@@ -1,9 +1,7 @@
 
-![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/pcm60xmonitor.jpg)
+To use the pcm60x-monitor, just call into your browser is connected to the same LAN as your raspberry pi:
 
-To use this script just call into your browser is connected to the same LAN as your raspberry pi:
-
-http://ipadressofyourraspberrypi/monitor.php
+http://ipadressofyourraspberrypi/monitor/
 
 **Attention: the Monitor is only working in the day time when the Display of the PCM60X is online!!!**
 
