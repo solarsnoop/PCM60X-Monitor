@@ -10,6 +10,12 @@ http://ipadressofyourraspberrypi/monitor.php
 this project is still under construction. finaly i will create a web based administration menue,
 where you can watch your current settings and parameters. Also update some settings easy by using this website.
 The project is testing with a raspberry pi 3.
+
+add in /bin/sudoers ->
+nano /bin/sudoers
+add this line at the end
+www-data ALL=(root) NOPASSWD: /usr/bin/python
+
 **phyton2.7 and php5 compatible codes**
 folders:
 /var/www/html/ -> copy all in this folder or create a new subfolder
