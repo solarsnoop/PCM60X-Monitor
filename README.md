@@ -10,7 +10,7 @@ You need:
 - USB Serial adapter with PL2303 (USB0*) or a serial adapter use the GPIOS (ARM0)
 - PCM60X Solar Charger
 
-*Use **sudo dmesg** for see what serial port your adapter use.
+*Use **sudo dmesg** for see what serial port your adapter useing.
 
 The PCM60X Web Monitor use in your local network with: http://ip-raspberryPi/monitor/
 Chrome/Firefox is tested
