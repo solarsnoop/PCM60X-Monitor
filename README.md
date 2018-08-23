@@ -45,7 +45,7 @@ ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
 I will show you 2 example how you can read datas and send datas to the PCM60x , and how you can post it to any aplication in this case emoncms (guithub project) and website at http://emoncms.org.
 
 **You need to do:**
-...
+```
 cd ..
 cd var
 cd www
@@ -70,7 +70,7 @@ sudo adduser $USER www-data
 sudo chgrp -R www-data /var/www
 sudo chmod -R g+w /var/www
 sudo chmod g+s /var/www
-...
+```
 
 1. going to the website:
 https://emoncms.de/CRC/crc.php
