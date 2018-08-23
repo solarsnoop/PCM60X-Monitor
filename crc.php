@@ -34,13 +34,13 @@ function out( $in, $ascii) {
 $crccode=strtoupper(dechex($in));
     # special rules for the charger thank you to https://github.com/njfaria
     $crc1=substr($crccode, 0, 2);
-    IF ($crc1=="0d"){$crc1="0e";}
-    IF ($crc1=="0a"){$crc1="0b";}
+    IF ($crc1=="0D"){$crc1="0E";}
+    IF ($crc1=="0A"){$crc1="0B";}
     IF ($crc1=="28"){$crc1="29";}
     $crc2=substr($crccode, 2, 4);
-    IF ($crc2=="0d"){$crc2="0e";}
-    IF ($crc2=="0a"){$crc2="0b";}
-    IF ($crc2=="28"){$crc1="29";}
+    IF ($crc2=="0D"){$crc2="0E";}
+    IF ($crc2=="0A"){$crc2="0B";}
+    IF ($crc2=="28"){$crc2="29";}
 $hexasc="";
 for ($i = 0; $i < strlen($ascii); $i++) {
     $byte = strtoupper(dechex(ord($ascii{$i})));
