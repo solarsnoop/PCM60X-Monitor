@@ -10,7 +10,7 @@ while i < 1:
     if serial.serialutil.SerialException and ser.isOpen():
        ser.write(QPIGS)
        result = ser.read(68)
-       if '(' in result:
+       if '(' in result and len(result)>66:
           fobj_out = open("qpigs.txt","w")
           fobj_out.write(result)
           fobj_out.close()
