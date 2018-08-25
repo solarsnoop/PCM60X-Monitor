@@ -10,7 +10,7 @@ while i < 1:
     if serial.serialutil.SerialException and ser.isOpen():
        ser.write(QPIRI)
        result = ser.read(68)
-       if '(' in result:
+       if '(' in result and len(result)>50:
           fobj_out = open("qpiri.txt","w")
           fobj_out.write(result)
           fobj_out.close()
