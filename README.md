@@ -7,8 +7,8 @@ PCM60X Solar Charger Web Based Monitor based on php and python
 You need:
 - Raspberry PI 2 or 3
 - Rasbian Jessie or Stretch -> apache, php 5 and python 2.7
-- USB Serial adapter with PL2303 (USB0*) or a serial adapter use the GPIOS (ARM0)
-(ARM0 look here: http://codeandlife.com/wp-content/uploads/2012/07/rasppi.png )
+- USB Serial adapter with PL2303 (USB0*) or a serial adapter use the GPIOS (AMA0)
+(AMA00 look here: http://codeandlife.com/wp-content/uploads/2012/07/rasppi.png )
 - PCM60X Solar Charger
 
 *Use **sudo dmesg** for see what serial port your adapter is useing.
