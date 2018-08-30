@@ -1,8 +1,12 @@
 # PCM60X-Monitor:
 
-Demo site:  https://emoncms.de/CRC/pcm60x.php
+###################################################################################
 
-PCM60X Solar Charger Web Based Monitor based on php and python
+Demo site:  https://emoncms.de/CRC/
+
+###################################################################################
+
+**PCM60X Solar Charger Web Based Monitor based on php and python**
 
 You need:
 - Raspberry PI 2 or 3
