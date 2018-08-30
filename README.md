@@ -66,7 +66,7 @@ www-data ALL=(ALL) NOPASSWD: /usr/bin/
 
 **phyton2.7 and php5 compatible codes**
 folders:
-/var/www/html/ -> copy all in this folder or create a new subfolder
+/var/www/html/monitor/ -> copy all files in this folder or create a other subfolder, but than you have to modify the codes!
 
 **additional you need to have the rasberry pi user www-data (If not exist)**
 ```
