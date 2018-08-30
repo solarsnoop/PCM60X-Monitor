@@ -37,7 +37,8 @@ Chrome/Firefox is tested
 ![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/pcm60xmonitor.jpg)
 
 **source for codes:**
-https://github.com/njfaria (help me for understand CRC code and gives me special information about some crc handling)
+THANKS to https://github.com/njfaria (help me for understand CRC code and gives me special information about some crc handling)
+
 **source for the crc.php pased on this forum:**  
 https://www.szenebox.org/archive/index.php/t-4319.html user NIMBUS
 
