@@ -19,9 +19,11 @@ You need:
 
 **example USB0: ttyUSB0 or 1 or 2 ...:**
 ```
-please change the CODE in
+please change the CODE in the two files:
+sendcode.py
+refresh.py
 ```
-**qpigs.py, qpiri.py and sendcode.py and look find:**
+**and look to find:**
 ```
 ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
 change this into
