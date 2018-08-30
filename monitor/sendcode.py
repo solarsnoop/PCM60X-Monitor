@@ -1,8 +1,9 @@
+ #!/usr/bin/env python
 import time
 import binascii
 import serial
 import os, ssl
-filename = 'transfer.txt'
+filename = '/var/www/html/monitor/transfer.txt'
 with open(filename, 'rb') as f:
      content = f.read()
 if content == "504254303274C0D":
@@ -21,4 +22,5 @@ while i < 1:
          if '(N' in result:
             print "unsuccessful"
             i = 1
-      ser.close()
+fobj_in.close()
+ser.close()
