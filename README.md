@@ -17,7 +17,7 @@ You need:
 
 *Use **sudo dmesg** for see what serial port your adapter is useing.
 
-**example USB0: ttyUSB0 or 1 or 2 ...:**
+**example USB0: ttyUSB0 or 1 ...:**
 ```
 please change the CODE in the two files:
 sendcode.py
@@ -26,9 +26,10 @@ refresh.py
 **and look to find:**
 ```
 ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
-change this into
-ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
+change this code to 
+ser = serial.Serial(port='/dev/ttyUSB1',baudrate=2400,timeout=2)
 ```
+(This is only an example when you are not using the USB0 Port)
 
 For the PCM60X Web Monitor it easy to use in your local network, just call in yor browser: 
 
