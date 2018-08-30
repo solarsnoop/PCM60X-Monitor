@@ -50,31 +50,39 @@ git clone https://github.com/solarsnoop/PCM60X-Monitor.git
 
 sudo mv /var/www/html/PCM60X-Monitor/monitor /var/www/html/monitor/
 sudo rm -rf PCM60X-Monitor/
-
-add in /etc/sudoers ->
-nano /etc/sudoers
-add this line at the end
-www-data ALL=(root) NOPASSWD: /usr/bin/python
+```
+**add in /etc/sudoers ->**
+nano /etc/sudoers -> add this line at the end
+```
+www-data ALL=(ALL) NOPASSWD: /usr/bin/
+```
 
 **phyton2.7 and php5 compatible codes**
 folders:
 /var/www/html/ -> copy all in this folder or create a new subfolder
 
-additional you need to have the rasberry pi user www-data (If not exist)
+**additional you need to have the rasberry pi user www-data (If not exist)**
+```
 sudo adduser $USER www-data
 sudo chgrp -R www-data /var/www
 sudo chmod -R g+w /var/www
 sudo chmod g+s /var/www
 ```
+**add the follow cron jobs to your root tab:**
+using: sudo nano /var/spool/cron/crontabs/root 
+```
+* * * * * python2 /var/www/html/monitor/refresh.py
+* * * * * sleep  15; python2  /var/www/html/monitor/refresh.py
+* * * * * sleep  30; python2 /var/www/html/monitor/refresh.py
+* * * * * sleep  45; python2  /var/www/html/monitor/refresh.py
+```
 after that call in your browser http://ipadressraspberrypi/monitor/
 
-**in this folder here:**
+**in the folder https://github.com/solarsnoop/PCM60X-Monitor/monitor:**
+you will find the project for the web client monitor
+
+**in this folder here in github/PCM60X-Monitor:**
 you find some work arrounds.
-
-**in the folder https://github.com/solarsnoop/PCM60X-Monitor:**
-you will find the project for the web client monitor here: https://github.com/solarsnoop/PCM60X-Monitor/tree/master/monitor/
-
-**summery for this folder:**
 
 Simple workaround for send recive datas to your PCM60X solar charger
 You can send codes to your PCM60x Charger, using the description of Solar Charge Controler - PCM60X - RS232 Protocol.pdf.
