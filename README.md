@@ -12,20 +12,26 @@ You need:
 - Raspberry PI 2 or 3
 - Rasbian Jessie or Stretch -> apache, php 5 and python 2.7
 - USB Serial adapter with PL2303 (USB0*) or a serial adapter use the GPIOS (AMA0)
-(AMA00 look here: http://codeandlife.com/wp-content/uploads/2012/07/rasppi.png )
+  (recommendation UGREEN USB to RS232 Seriell PL2303)
 - PCM60X Solar Charger
 
 *Use **sudo dmesg** for see what serial port your adapter is useing.
 
-**example USB1: ttyUSB1:**
+**example USB0: ttyUSB0 or 1 or 2 ...:**
 ```
-please change the CODE in qpigs.py, qpiri.py and sendcode.py and look find:
+please change the CODE in
+```
+**qpigs.py, qpiri.py and sendcode.py and look find:**
+```
 ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
 change this into
-ser = serial.Serial(port='/dev/ttyUSB1',baudrate=2400,timeout=2)
+ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
 ```
 
-The PCM60X Web Monitor use in your local network with: http://ip-raspberryPi/monitor/
+For the PCM60X Web Monitor it easy to use in your local network, just call in yor browser: 
+
+http://ip-raspberryPi/monitor/
+
 Chrome/Firefox is tested
 
 ![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/pcm60xmonitor.jpg)
