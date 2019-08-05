@@ -111,7 +111,7 @@ ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
 2nd. better option is:
 1. open the shell window and call: ls -l /dev/serial/by-id
 find the adapter 
-![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/pcm60xmonitor.jpg)
+![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/serport.jpg)
 In this example it the: usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0
 
 Please copy your result for the Prolific controler and use it in the same way like this:
