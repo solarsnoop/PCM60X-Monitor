@@ -108,6 +108,22 @@ In the codes just modify the interface, depending what you are using. eg.: AMA0 
 ```
 ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
 ```
+2nd. better option is:
+1. open the shell window and call: ls -l /dev/serial/by-id
+find the adapter 
+![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/serport.jpg)
+In this example it the: usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0
+
+Please copy your result for the Prolific controler and use it in the same way like this:
+ser = serial.Serial(port='/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0',baudrate=2400,timeout=2) 
+if you use this sytax and not the ttyUSBx Syntex, you will not have the Problem with USB Port switching , after reboot from the PI. 
+
+ATTENTION ALL CODE HAVE THE FIX SYNTEX LIKE:
+ser = serial.Serial(port='/dev/ttyUSB0',baudrate=2400,timeout=2)
+please modifiy your Code depending on your port list:
+ser = serial.Serial(port='/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0',baudrate=2400,timeout=2) 
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 I will show you 2 example how you can read datas and send datas to the PCM60x , and how you can post it to any aplication in this case emoncms (guithub project) and website at http://emoncms.org.
 
