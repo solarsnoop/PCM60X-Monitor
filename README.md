@@ -270,3 +270,32 @@ PBFV13.50��
 (ACK9 
 So after that your floating setup changed to 13.50 (x1,2 or4)
 ```
+**New code for MQTT (eg IOBROKER, mosquitto MQTT Broker, ...) example**
+```
+import time
+import serial
+import paho.mqtt.publish as publish
+import os, ssl
+QPIGS = "\x51\x50\x49\x47\x53\xB7\xA9\x0D"
+MQTT_SERVER = "127.0.0.1"
+MQTT_PORT = 1883
+MQTT_PATH1 = "solpiplog/PCM60x/watt"
+MQTT_PATH2 = "solpiplog/PCM60x/strom"
+MQTT_PATH3 = "solpiplog/PCM60x/voltpv"
+MQTT_PATH4 = "solpiplog/PCM60x/temp"
+MQTT_PATH5 = "solpiplog/PCM60/voltb"
+ser = serial.Serial(port='/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0',baudrate=2400,timeout=2)
+if serial.serialutil.SerialException and ser.isOpen():
+   ser.write(QPIGS)
+   result = ser.read(68)
+publish.single(MQTT_PATH1, result [31:35], hostname=MQTT_SERVER, port=MQTT_PORT)
+publish.single(MQTT_PATH2, result [14:19], hostname=MQTT_SERVER, port=MQTT_PORT)
+publish.single(MQTT_PATH3, result [1:6], hostname=MQTT_SERVER, port=MQTT_PORT)
+publish.single(MQTT_PATH4, result [38:40], hostname=MQTT_SERVER, port=MQTT_PORT)
+publish.single(MQTT_PATH5, result [7:12], hostname=MQTT_SERVER, port=MQTT_PORT)
+ser.close()
+
+```
+**MQTT_SERVER = PLEASE USE THE IP FOR YOUR MQTT BROKER
+**MQTT_PORT = PLEASE USE THE PORT FOR YOUR MQTT BROKER
+**ser = ... usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0 -> Please modify with your result of ls -l /dev/serial/by-id
