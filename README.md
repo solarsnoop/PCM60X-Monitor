@@ -270,7 +270,7 @@ PBFV13.50��
 (ACK9 
 So after that your floating setup changed to 13.50 (x1,2 or4)
 ```
-**New code for MQTT (eg IOBROKER, mosquitto MQTT Broker, ...) example**
+**New code for MQTT (eg IOBROKER, mosquitto MQTT Broker, ...) example, please save this code as pcmcall.py and call every 20 sec. with a cron job **
 ```
 import time
 import serial
@@ -301,3 +301,6 @@ ser.close()
 **MQTT_PORT = PLEASE USE THE PORT FOR YOUR MQTT BROKER**
 
 **ser = ... usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0 -> Please modify with your result of ls -l /dev/serial/by-id**
+
+Result in your Broker will be like this 
+![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/mqtt.png)
