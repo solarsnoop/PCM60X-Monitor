@@ -297,5 +297,7 @@ ser.close()
 
 ```
 **MQTT_SERVER = PLEASE USE THE IP FOR YOUR MQTT BROKER**
+
 **MQTT_PORT = PLEASE USE THE PORT FOR YOUR MQTT BROKER**
+
 **ser = ... usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0 -> Please modify with your result of ls -l /dev/serial/by-id**
