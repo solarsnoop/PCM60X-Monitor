@@ -279,11 +279,11 @@ import os, ssl
 QPIGS = "\x51\x50\x49\x47\x53\xB7\xA9\x0D"
 MQTT_SERVER = "127.0.0.1"
 MQTT_PORT = 1883
-MQTT_PATH1 = "solpiplog/PCM60x/watt"
-MQTT_PATH2 = "solpiplog/PCM60x/strom"
-MQTT_PATH3 = "solpiplog/PCM60x/voltpv"
-MQTT_PATH4 = "solpiplog/PCM60x/temp"
-MQTT_PATH5 = "solpiplog/PCM60/voltb"
+MQTT_PATH1 = "solpiplog/PCM60_1/watt"
+MQTT_PATH2 = "solpiplog/PCM60_1/strom"
+MQTT_PATH3 = "solpiplog/PCM60_1/voltpv"
+MQTT_PATH4 = "solpiplog/PCM60_1/temp"
+MQTT_PATH5 = "solpiplog/PCM60_1/voltb"
 ser = serial.Serial(port='/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0',baudrate=2400,timeout=2)
 if serial.serialutil.SerialException and ser.isOpen():
    ser.write(QPIGS)
