@@ -315,12 +315,12 @@ for device, topics in devices:
 
 
 ```
-**MQTT_SERVER = PLEASE USE THE IP FOR YOUR MQTT BROKER**
+MQTT_SERVER = PLEASE USE THE IP FOR YOUR MQTT BROKER
 
-**MQTT_PORT = PLEASE USE THE PORT FOR YOUR MQTT BROKER**
+MQTT_PORT = PLEASE USE THE PORT FOR YOUR MQTT BROKER
 
 **ser = ... usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0 -> Please modify with your result of ls -l /dev/serial/by-id**
-if you have more than one adapter you need to add after line 298 :
+if you have more than one adapter you need to add under devices:
 ```
  ('usb-Prolific_Technology_Inc._USB-Serial_Controller_**BHCSf103Y23**-if00-port0', [
         ("solpiplog/PCM60_2/watt", slice(31, 35)),
