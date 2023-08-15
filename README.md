@@ -320,9 +320,10 @@ MQTT_SERVER = PLEASE USE THE IP FOR YOUR MQTT BROKER
 MQTT_PORT = PLEASE USE THE PORT FOR YOUR MQTT BROKER
 
 **ser = ... usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0 -> Please modify with your result of ls -l /dev/serial/by-id**
+
 if you have more than one adapter you need to add under devices:
 ```
- ('usb-Prolific_Technology_Inc._USB-Serial_Controller_**BHCSf103Y23**-if00-port0', [
+ ('usb-Prolific_Technology_Inc._USB-Serial_Controller_BHCSf103Y23-if00-port0', [
         ("solpiplog/PCM60_2/watt", slice(31, 35)),
         ("solpiplog/PCM60_2/strom", slice(14, 19)),
         ("solpiplog/PCM60_2/voltpv", slice(1, 6)),
@@ -330,7 +331,7 @@ if you have more than one adapter you need to add under devices:
         ("solpiplog/PCM60_2/voltb", slice(7, 12)),
     ]),
 ```
-every other adapter will list with a different ID please use the result from ls -l /dev/serial/by-id
+every other adapter will list with a different ID in this example: **_BHCSf103Y23** please use the result from ls -l /dev/serial/by-id
 
 **PROBLEMS**: Debian 11 has no /dev/serial/
 SOLUTION: https://github.com/systemd/systemd/blob/main/rules.d/60-serial.rules
