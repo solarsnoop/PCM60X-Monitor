@@ -270,30 +270,49 @@ PBFV13.50��
 (ACK9 
 So after that your floating setup changed to 13.50 (x1,2 or4)
 ```
-**New code for MQTT (eg IOBROKER, mosquitto MQTT Broker, ...) example, please save this code as pcmcall.py and call every 20 sec. with a cron job **
+**New code for MQTT (eg IOBROKER, mosquitto MQTT Broker, ...) example, please save this code as pcmcall.py and call every 20 sec. with a cron job !!!PYTHON3!!!**
 ```
+# -*- coding: utf-8 -*-
 import time
 import serial
 import paho.mqtt.publish as publish
-import os, ssl
-QPIGS = "\x51\x50\x49\x47\x53\xB7\xA9\x0D"
+import os
+import ssl
+
+if (not os.environ.get('PYTHONHTTPSVERIFY', '') and
+    getattr(ssl, '_create_unverified_context', None)): 
+    ssl._create_default_https_context = ssl._create_unverified_context
+
+QPIGS = b"\x51\x50\x49\x47\x53\xB7\xA9\x0D"
 MQTT_SERVER = "127.0.0.1"
-MQTT_PORT = 1883
-MQTT_PATH1 = "solpiplog/PCM60_1/watt"
-MQTT_PATH2 = "solpiplog/PCM60_1/strom"
-MQTT_PATH3 = "solpiplog/PCM60_1/voltpv"
-MQTT_PATH4 = "solpiplog/PCM60_1/temp"
-MQTT_PATH5 = "solpiplog/PCM60_1/voltb"
-ser = serial.Serial(port='/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0',baudrate=2400,timeout=2)
-if serial.serialutil.SerialException and ser.isOpen():
-   ser.write(QPIGS)
-   result = ser.read(68)
-publish.single(MQTT_PATH1, result [31:35], hostname=MQTT_SERVER, port=MQTT_PORT)
-publish.single(MQTT_PATH2, result [14:19], hostname=MQTT_SERVER, port=MQTT_PORT)
-publish.single(MQTT_PATH3, result [1:6], hostname=MQTT_SERVER, port=MQTT_PORT)
-publish.single(MQTT_PATH4, result [38:40], hostname=MQTT_SERVER, port=MQTT_PORT)
-publish.single(MQTT_PATH5, result [7:12], hostname=MQTT_SERVER, port=MQTT_PORT)
-ser.close()
+MQTT_PORT = 1886
+
+devices = [
+    ('usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0', [
+        ("solpiplog/PCM60_1/watt", slice(31, 35)),
+        ("solpiplog/PCM60_1/strom", slice(14, 19)),
+        ("solpiplog/PCM60_1/voltpv", slice(1, 6)),
+        ("solpiplog/PCM60_1/temp", slice(38, 40)),
+        ("solpiplog/PCM60_1/voltb", slice(7, 12)),
+    ]),
+    # ... Add other devices here
+]
+
+for device, topics in devices:
+    ser = serial.Serial(port=f'/dev/serial/by-id/{device}', baudrate=2400, timeout=2)
+
+    if ser.isOpen():
+        ser.write(QPIGS)
+        result = ser.read(68)
+        print(result)  # Hier bleibt die Ausgabe als Bytes, ohne zu decodieren
+        if b'(' in result and len(result) > 66:
+            with open("/var/www/html/monitor/qpigs.txt", "wb") as fobj_out:
+                fobj_out.write(result)
+
+        for topic, slicer in topics:
+            publish.single(topic, result[slicer].decode('utf-8'), hostname=MQTT_SERVER, port=MQTT_PORT)
+        ser.close()
+
 
 ```
 **MQTT_SERVER = PLEASE USE THE IP FOR YOUR MQTT BROKER**
@@ -301,6 +320,24 @@ ser.close()
 **MQTT_PORT = PLEASE USE THE PORT FOR YOUR MQTT BROKER**
 
 **ser = ... usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0 -> Please modify with your result of ls -l /dev/serial/by-id**
+if you have more than one adapter you need to add after line 298 :
+```
+ ('usb-Prolific_Technology_Inc._USB-Serial_Controller_**BHCSf103Y23**-if00-port0', [
+        ("solpiplog/PCM60_2/watt", slice(31, 35)),
+        ("solpiplog/PCM60_2/strom", slice(14, 19)),
+        ("solpiplog/PCM60_2/voltpv", slice(1, 6)),
+        ("solpiplog/PCM60_2/temp", slice(38, 40)),
+        ("solpiplog/PCM60_2/voltb", slice(7, 12)),
+    ]),
+```
+every other adapter will list with a different ID please use the result from ls -l /dev/serial/by-id
+
+**PROBLEMS**: Debian 11 has no /dev/serial/
+SOLUTION: https://github.com/systemd/systemd/blob/main/rules.d/60-serial.rules
+
+**For use this code in python3 on Raspberry Pi u may need install pyserial and paho-mqtt:**
+pip3 install pyserial
+pip3 install paho-mqtt
 
 Result in your Broker will be like this 
 ![alt text](https://raw.githubusercontent.com/solarsnoop/PCM60X-Monitor/master/mqtt.png)
